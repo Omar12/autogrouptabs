@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Auto Group Tabs – Rules</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main>
+      <header class="page-header">
+        <img src="../icons/icon-48.png" alt="" width="40" height="40" />
+        <div>
+          <h1>Auto Group Tabs</h1>
+          <p class="muted">Tabs that match a rule are moved into the tab group you name. The group is created if it doesn't exist yet.</p>
+        </div>
+        <span id="save-status" class="save-status" role="status" aria-live="polite"></span>
+      </header>
+
+      <section class="panel settings">
+        <label class="check">
+          <input type="checkbox" id="enabled" />
+          <span><strong>Automatically group tabs</strong><br /><span class="muted">Turn off to pause all rules.</span></span>
+        </label>
+        <label class="check">
+          <input type="checkbox" id="ungroup-unmatched" />
+          <span><strong>Remove tabs from a group when they stop matching</strong><br /><span class="muted">Only affects tabs this extension grouped. For example, a Shopping tab that navigates to a site with no rule leaves the group.</span></span>
+        </label>
+      </section>
+
+      <section>
+        <div class="section-header">
+          <h2>Rules</h2>
+          <span class="muted">Checked top to bottom — the first rule that matches wins.</span>
+        </div>
+        <ol id="rules" class="rules"></ol>
+        <p id="empty" class="empty" hidden>No rules yet. Add one to start grouping tabs — for example, domain <code>amazon.com</code> → group <code>Shopping</code>.</p>
+        <div class="actions">
+          <button id="add-rule" class="primary" type="button">+ Add rule</button>
+          <button id="apply-all" type="button">Group open tabs now</button>
+          <span id="apply-status" class="muted" role="status" aria-live="polite"></span>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Test your rules</h2>
+        <p class="muted">Enter a URL (and optionally a page title) to see which group it would land in.</p>
+        <div class="test-row">
+          <input id="test-url" type="text" placeholder="https://www.amazon.com/deals" aria-label="URL to test" spellcheck="false" />
+          <input id="test-title" type="text" placeholder="Page title (optional)" aria-label="Page title to test" />
+        </div>
+        <p id="test-result" class="test-result" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="panel">
+        <h2>Backup</h2>
+        <div class="actions">
+          <button id="export" type="button">Export rules</button>
+          <button id="import" type="button">Import rules…</button>
+          <input id="import-file" type="file" accept="application/json,.json" hidden />
+          <span id="backup-status" class="muted" role="status" aria-live="polite"></span>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="options.js"></script>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "autogrouptabs",
+  "version": "1.0.0",
+  "description": "Automatically groups browser tabs into named tab groups using rules you define.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test test/*.test.mjs",
+    "test:e2e": "node scripts/build.mjs && node test/e2e.mjs"
+  }
+}
