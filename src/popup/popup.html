@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Auto Group Tabs</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <label class="row toggle">
+      <span><strong>Auto Group Tabs</strong><br /><span id="state" class="muted"></span></span>
+      <input type="checkbox" id="enabled" />
+    </label>
+
+    <section id="current" class="section" hidden>
+      <div class="muted">This tab</div>
+      <div id="current-match"></div>
+    </section>
+
+    <form id="quick-add" class="section" hidden>
+      <label for="group-name">Always group <strong id="domain"></strong> in:</label>
+      <div class="row">
+        <input id="group-name" type="text" list="group-names" placeholder="Group name, e.g. Shopping" maxlength="100" autocomplete="off" required />
+        <button type="submit" class="primary">Add</button>
+      </div>
+      <datalist id="group-names"></datalist>
+    </form>
+
+    <div class="section buttons">
+      <button id="apply-all" type="button">Group open tabs now</button>
+      <button id="open-options" type="button">Manage rules…</button>
+    </div>
+    <p id="status" class="muted" role="status" aria-live="polite"></p>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
